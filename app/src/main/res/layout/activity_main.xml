@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/inputGroup"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:constraint_referenced_ids="inputHeader, sleepQuestion, sleepBar,
+        sleepData,exerciseQuestion, exerciseBar, exerciseData, noteQuestion, noteInput">
+
+    </androidx.constraintlayout.widget.Group>
+
+    <TextView
+        android:id="@+id/inputHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:text="Input data for today!"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sleepQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="How much did you sleep last night?"
+        app:layout_constraintStart_toStartOf="@+id/inputHeader"
+        app:layout_constraintTop_toBottomOf="@+id/inputHeader" />
+
+    <SeekBar
+        android:id="@+id/sleepBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:indeterminate="false"
+        android:max="24"
+        android:progress="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sleepQuestion" />
+
+    <TextView
+        android:id="@+id/sleepData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0/24"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sleepBar" />
+
+    <TextView
+        android:id="@+id/exerciseQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="How much did you exercise today?"
+        app:layout_constraintStart_toStartOf="@+id/sleepQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/sleepData" />
+
+    <SeekBar
+        android:id="@+id/exerciseBar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:indeterminate="false"
+        android:max="12"
+        android:progress="0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseQuestion" />
+
+    <TextView
+        android:id="@+id/exerciseData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0/12"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseBar" />
+
+    <TextView
+        android:id="@+id/noteQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Any other notes?"
+        app:layout_constraintStart_toStartOf="@+id/sleepQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseData" />
+
+    <EditText
+        android:id="@+id/noteInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:inputType="textNoSuggestions"
+        android:hint="Input notes here"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteQuestion" />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteInput" />
+
+    <Button
+        android:id="@+id/average"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="Average"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitBtn" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/inputsRV"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/average"
+        app:reverseLayout="true"
+        app:stackFromEnd="true"
+        tools:listitem="@layout/input_item" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="5dp"
+        tools:text="@tools:sample/date/mmddyy"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sleepHrs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
+
+    <RatingBar
+        android:id="@+id/sleepRating"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="0"
+        android:stepSize="0.1"
+        app:layout_constraintStart_toEndOf="@+id/sleepHrs"
+        app:layout_constraintBottom_toBottomOf="@+id/sleepHrs" />
+
+    <RatingBar
+        android:id="@+id/exerciseRating"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="0"
+        android:stepSize="0.1"
+        app:layout_constraintStart_toEndOf="@+id/exerciseHrs"
+        app:layout_constraintBottom_toBottomOf="@+id/exerciseHrs" />
+
+    <TextView
+        android:id="@+id/exerciseHrs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/sleepHrs"
+        app:layout_constraintTop_toBottomOf="@+id/sleepHrs" />
+
+    <TextView
+        android:id="@+id/noteTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/exerciseHrs"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseHrs" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
