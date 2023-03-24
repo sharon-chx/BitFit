@@ -10,22 +10,31 @@
         android:id="@+id/inputGroup"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        app:constraint_referenced_ids="inputHeader, sleepQuestion, sleepBar,
+        app:constraint_referenced_ids="dateQuestion, dateButton, sleepQuestion, sleepBar,
         sleepData,exerciseQuestion, exerciseBar, exerciseData, noteQuestion, noteInput">
 
     </androidx.constraintlayout.widget.Group>
 
     <TextView
-        android:id="@+id/inputHeader"
+        android:id="@+id/dateQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
-        android:text="Input data for today!"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:text="Select date:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/dateButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Jan 01 2023"
+        android:textColor="@color/black"
+        style="?android:spinnerStyle"
+        app:layout_constraintStart_toStartOf="@+id/dateQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/dateQuestion" />
 
     <TextView
         android:id="@+id/sleepQuestion"
@@ -33,8 +42,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="How much did you sleep last night?"
-        app:layout_constraintStart_toStartOf="@+id/inputHeader"
-        app:layout_constraintTop_toBottomOf="@+id/inputHeader" />
+        app:layout_constraintStart_toStartOf="@+id/dateQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/dateButton" />
 
     <SeekBar
         android:id="@+id/sleepBar"
