@@ -18,4 +18,13 @@ interface HealthDataDAO {
     @Delete
     fun delete(healthData: HealthDataEntity)
 
+    @Query("DELETE FROM health_data_table")
+    fun deleteAll()
+
+    @Query("SELECT * FROM health_data_table WHERE id = :idNo ")
+    fun get(idNo: Long): HealthDataEntity
+
+    @Query("SELECT AVERAGE(:col) FROM health_data_table")
+    fun getAverage(col: String): Double
+
 }

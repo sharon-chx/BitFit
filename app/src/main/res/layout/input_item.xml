@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/date"
@@ -30,22 +30,24 @@
         style="?android:attr/ratingBarStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:numStars="5"
         android:rating="0"
-        android:stepSize="0.1"
-        app:layout_constraintStart_toEndOf="@+id/sleepHrs"
-        app:layout_constraintBottom_toBottomOf="@+id/sleepHrs" />
+        android:stepSize="0.5"
+        app:layout_constraintBottom_toBottomOf="@+id/sleepHrs"
+        app:layout_constraintStart_toEndOf="@+id/sleepHrs" />
 
     <RatingBar
         android:id="@+id/exerciseRating"
         style="?android:attr/ratingBarStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:numStars="5"
         android:rating="0"
-        android:stepSize="0.1"
-        app:layout_constraintStart_toEndOf="@+id/exerciseHrs"
-        app:layout_constraintBottom_toBottomOf="@+id/exerciseHrs" />
+        android:stepSize="1"
+        app:layout_constraintBottom_toBottomOf="@+id/exerciseHrs"
+        app:layout_constraintStart_toEndOf="@+id/exerciseHrs" />
 
     <TextView
         android:id="@+id/exerciseHrs"
@@ -62,6 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="TextView"
+        android:maxLines="1"
+        android:ellipsize="end"
         app:layout_constraintStart_toStartOf="@+id/exerciseHrs"
         app:layout_constraintTop_toBottomOf="@+id/exerciseHrs" />
 

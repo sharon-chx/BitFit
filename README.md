@@ -4,7 +4,7 @@ Submitted by: **Sharon Chen**
 
 **BitFit** is a health metrics app that allows users to track sleep and exercise hours
 
-Time spent: **4** hours spent in total
+Time spent: **8** hours spent in total
 
 ## Required Features
 
@@ -13,19 +13,19 @@ The following **required** functionality is completed:
 - [x] **At least one health metric is tracked (based on user input)**
   - Chosen metric(s): `sleep and exercise hours`
 - [x] **There is a "create entry" UI that prompts users to make their daily entry**
-- [ ] **New entries are saved in a database and then updated in the RecyclerView**
-- [ ] **On application restart, previously entered entries are preserved (i.e., are *persistent*)**
+- [x] **New entries are saved in a database and then updated in the RecyclerView**
+- [x] **On application restart, previously entered entries are preserved (i.e., are *persistent*)**
  
 The following **optional** features are implemented:
 
-- [ ] **Create a UI for tracking averages and trends in metrics**
+- [x] **Create a UI for tracking averages and trends in metrics**
 - [x] **Improve and customize the user interface through styling and coloring**
 - [ ] **Implement orientation responsivity**
 - [ ] **Add a daily photo feature**
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] **Let user select the date to input data**
 
 ## Video Walkthrough
 
