@@ -25,7 +25,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] **Let user select the date to input data, and make sure no duplicate entries for the same date**
+- [x] **Let user select the date to input data (using DatePickerDialog), and make sure no duplicate entries for the same date**
 - [x] **Long press a record to delete**
 
 ## Video Walkthrough
