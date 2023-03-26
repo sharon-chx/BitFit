@@ -47,6 +47,7 @@ GIF created with AZ Screen Recorder (on Android phone) and ScreenToGif to screen
 - Learned that updating UI related in  lifecycleScope.launch() is impossible, need to use Handler(Looper.getMainLooper()).post{} to do so.
 - the getAll() database method in lifecycleScope.launch() in MainActivity runs every time there's changes in database. So don't need to call
 adapter.notifyDataSetChanged() when inserting and deleting an item into/from database
+- Self-studied on implementing  Seekbar and Seekbar.setOnSeekBarChangeListener(), and DatePickerDialog. Noticed that button can be used as spinnerStyle for DatePickerDialog and a text box.
 
 ## License
 
