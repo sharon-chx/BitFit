@@ -4,7 +4,7 @@ Submitted by: **Sharon Chen**
 
 **BitFit** is a health metrics app that allows users to track sleep and exercise hours
 
-Time spent: **8** hours spent in total
+Time spent: **10** hours spent in total
 
 ## Required Features
 
@@ -25,7 +25,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] **Let user select the date to input data**
+- [x] **Let user select the date to input data, and make sure no duplicate entries for the same date**
+- [x] **Long press a record to delete**
 
 ## Video Walkthrough
 

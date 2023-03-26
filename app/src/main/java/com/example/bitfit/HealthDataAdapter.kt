@@ -17,7 +17,7 @@ class HealthDataAdapter(private val context: Context, private val healthData: Li
 
     // Define the listener interface
     interface OnItemClickListener {
-        fun onLongPress(itemView: View?, position: Int)
+        fun onLongPress(position: Int)
     }
 
     // Define listener member variable
@@ -44,7 +44,7 @@ class HealthDataAdapter(private val context: Context, private val healthData: Li
             itemView.setOnLongClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    listener.onLongPress(itemView, position)
+                    listener.onLongPress(position)
                 }
                 true
             }
@@ -63,10 +63,10 @@ class HealthDataAdapter(private val context: Context, private val healthData: Li
         // Set item views based on your views and data model
         holder.dateTV.text = data.date
         holder.sleepTV.text = "Slept " + data.sleepHours.toString() + " hrs"
-        holder.sleepRating.progress = (data.sleepHours / 2.0).roundToInt()
+        holder.sleepRating.progress = data.sleepHours
         holder.exerciseTV.text = "Worked out " + data.exerciseHours.toString() + " hrs"
         holder.exerciseRating.progress = data.exerciseHours
-        holder.notesTV.text = data.notes
+        holder.notesTV.text = "Notes: " + data.notes
     }
 
 

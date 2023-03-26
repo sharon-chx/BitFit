@@ -10,21 +10,24 @@ import kotlinx.coroutines.flow.Flow
 interface HealthDataDAO {
 
     @Query("SELECT * FROM health_data_table")
-    fun getAll(): Flow<List<HealthDataEntity>>
+    fun getAll(): Flow<List<HealthData>>
 
     @Insert
-    fun insert(healthData: HealthDataEntity)
+    fun insert(healthData: HealthData)
 
     @Delete
-    fun delete(healthData: HealthDataEntity)
+    fun delete(healthData: HealthData)
 
     @Query("DELETE FROM health_data_table")
     fun deleteAll()
 
-    @Query("SELECT * FROM health_data_table WHERE id = :idNo ")
-    fun get(idNo: Long): HealthDataEntity
+    @Query("SELECT * FROM health_data_table WHERE date = :date ")
+    fun get(date: String): List<HealthData>
 
-    @Query("SELECT AVERAGE(:col) FROM health_data_table")
-    fun getAverage(col: String): Double
+    @Query("SELECT AVG(sleepHours) FROM health_data_table")
+    fun getAverageSleep(): Double
+
+    @Query("SELECT AVG(exerciseHours) FROM health_data_table")
+    fun getAverageExercise(): Double
 
 }
