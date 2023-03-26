@@ -32,10 +32,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://user-images.githubusercontent.com/69126372/227751530-a80d27b6-a4f0-44ce-b735-e3177fe844ef.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
+GIF created with AZ Screen Recorder (on Android phone) and ScreenToGif to screen recording and convert to gif 
 <!-- Recommended tools:
 [Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
@@ -43,11 +43,14 @@ GIF created with ...
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+- Database using Room is challenging, since set Date as primary key, did some try and error on preventing duplicated entries for same date
+- Learned that updating UI related in  lifecycleScope.launch() is impossible, need to use Handler(Looper.getMainLooper()).post{} to do so.
+- the getAll() database method in lifecycleScope.launch() in MainActivity runs every time there's changes in database. So don't need to call
+adapter.notifyDataSetChanged() when inserting and deleting an item into/from database
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2023] [Sharon Chen]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
