@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.lifecycle.lifecycleScope
@@ -15,6 +16,9 @@ import java.util.*
 
 class InputActivity : AppCompatActivity() {
     lateinit var dateBtn: Button
+    var yearPicked = 1999
+    var monthPicked = 1
+    var dayPicked = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,14 +63,18 @@ class InputActivity : AppCompatActivity() {
 
                 // check if data for the date has existed, only insert to database if not existed
                 val checkData = (application as BitFitApplication).db.healthDataDao().get(dateBtn.text.toString())
+                val dateEntry = yearPicked*10000 + (monthPicked)*100+ dayPicked
 
                 if (checkData.isEmpty()) {
                     val newData = HealthData(
                         dateBtn.text.toString(),
                         sleepHrInput.progress,
                         exerciseHrInput.progress,
-                        notesInput.toString()
+                        notesInput.toString(),
+                        dateEntry
                     )
+
+                    Log.e("insert: ", newData.dateNum.toString())
 
                     lifecycleScope.launch(IO) {
                         (application as BitFitApplication).db.healthDataDao().insert(newData)
@@ -102,6 +110,9 @@ class InputActivity : AppCompatActivity() {
                     view, year, monthOfYear, dayOfMonth ->
                 // setting date to our text view.
                 dateBtn.text =  makeDateString(monthOfYear + 1, dayOfMonth, year)
+                yearPicked = year
+                monthPicked = monthOfYear + 1
+                dayPicked = dayOfMonth
             },
             cYear,
             cMonth,

@@ -2,6 +2,7 @@ package com.example.bitfit
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,10 +15,10 @@ import kotlinx.coroutines.launch
 
 class DataLlistFragment : Fragment() {
 
-    private val healthDataList = mutableListOf<HealthData>()
     private lateinit var inputBtn: Button
     private lateinit var healthDataAdapter: HealthDataAdapter
     private lateinit var healthDataRV: RecyclerView
+    private val healthDataList = mutableListOf<HealthData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,15 +54,21 @@ class DataLlistFragment : Fragment() {
                     entity.date,
                     entity.sleepHours,
                     entity.exerciseHours,
-                    entity.notes
+                    entity.notes,
+                    entity.dateNum
                 )
             }.also { mappedList ->
                 healthDataList.clear()
                 healthDataList.addAll(mappedList)
+                for (item in healthDataList){
+                    Log.e("data: ", item.dateNum.toString())
+                }
                 healthDataAdapter.notifyDataSetChanged()
             }
             }
         }
+
+
 
 
         // go to input page when input data button is hit

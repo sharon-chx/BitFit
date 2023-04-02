@@ -20,6 +20,8 @@ data class HealthData(
 
     @ColumnInfo(name = "notes") val notes: String?,
 
+    @ColumnInfo(name = "dateNum") val dateNum: Int,
+
     // autogenerate item has be the last argument
     //@PrimaryKey(autoGenerate = true) val id: Long = 0
 

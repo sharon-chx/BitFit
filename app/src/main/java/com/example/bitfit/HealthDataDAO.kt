@@ -30,4 +30,7 @@ interface HealthDataDAO {
     @Query("SELECT AVG(exerciseHours) FROM health_data_table")
     fun getAverageExercise(): Double
 
+    @Query("SELECT * FROM (SELECT * FROM health_data_table ORDER BY dateNum DESC LIMIT 7) ORDER BY dateNum ASC")
+    fun getLast7DayData(): List<HealthData>
+
 }
