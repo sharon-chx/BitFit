@@ -32,7 +32,7 @@ from part 1 of this project:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='[http://i.imgur.com/link/to/your/gif/file.gif](https://user-images.githubusercontent.com/69126372/229377673-211344e4-683f-46c4-9d3c-bf05483bf081.gif)' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://user-images.githubusercontent.com/69126372/229377673-211344e4-683f-46c4-9d3c-bf05483bf081.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with AZ Screen Recorder (on Android phone) and ScreenToGif to screen recording and convert to gif
