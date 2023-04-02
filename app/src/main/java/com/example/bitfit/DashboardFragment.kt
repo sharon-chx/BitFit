@@ -27,8 +27,6 @@ class DashboardFragment : Fragment() {
     lateinit var statBtn: Button
     lateinit var chart: LineChart
 
-    var xValues: ArrayList<String> = ArrayList()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -61,6 +59,7 @@ class DashboardFragment : Fragment() {
             val sleepEntries: ArrayList<Entry> = ArrayList()
             val exerciseEntries: ArrayList<Entry> = ArrayList()
             var dateVal = 0
+            var xValues: ArrayList<String> = ArrayList()
 
             for ((count, entity) in values.withIndex()){
                 // x values has to be sorted in ascending order
@@ -99,7 +98,7 @@ class DashboardFragment : Fragment() {
             xAxis.setDrawGridLines(false)
             // need to set the min & max, so that x axis label algin with data
             xAxis.axisMinimum = 0f
-            xAxis.axisMaximum = 7f
+            xAxis.axisMaximum = 6f
             // use String array as x axis label
             xAxis.valueFormatter = IndexAxisValueFormatter(xValues)
             chart.axisRight.isEnabled = false
