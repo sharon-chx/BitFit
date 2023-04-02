@@ -1,108 +1,54 @@
 package com.example.bitfit
 
-import android.app.DatePickerDialog
-import android.content.Context
-import android.content.Intent
+
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.view.View
-import android.view.inputmethod.InputMethodManager
-import android.widget.*
-import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.Group
-import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.launch
-import java.util.*
+import androidx.fragment.app.Fragment
+import com.example.bitfit.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainActivity : AppCompatActivity() {
 
-
-    private val healthDataList = mutableListOf<HealthData>()
-    lateinit var statBtn: Button
-
-
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        val inputBtn = findViewById<Button>(R.id.inputBtn)
-        statBtn = findViewById<Button>(R.id.average)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        // get the Adapter and update items
-        val healthDataRV = findViewById<RecyclerView>(R.id.inputsRV)
-        val healthDataAdapter =HealthDataAdapter(this, healthDataList)
-        healthDataRV.adapter = healthDataAdapter
+        // define fragments
+        val dataListFragment: Fragment = DataLlistFragment()
+        val dashboardFragment: Fragment = DashboardFragment()
 
-        // get all data from database to show
-        lifecycleScope.launch {
-            (application as BitFitApplication).db.healthDataDao().getAll().collect {
-                databaseList -> databaseList.map{
-                    entity ->
-                    HealthData(
-                        entity.date,
-                        entity.sleepHours,
-                        entity.exerciseHours,
-                        entity.notes
-                    )
-            }.also { mappedList ->
-                healthDataList.clear()
-                healthDataList.addAll(mappedList)
-                healthDataAdapter.notifyDataSetChanged()
-                calAverage()
-                }
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+
+        // handle navigation selection
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            lateinit var fragment: Fragment
+            when (item.itemId) {
+                R.id.nav_log -> fragment = dataListFragment
+                R.id.nav_dashboard -> fragment = dashboardFragment
             }
+            replaceFragment(fragment)
+            true
         }
 
-        // go to input page when input data button is hit
-        inputBtn.setOnClickListener{
-            val intent = Intent(this@MainActivity, InputActivity::class.java)
-            startActivity(intent)
-        }
-
-
-        // Set Adapter's onClickListener - to delete items
-        healthDataAdapter.setOnItemClickListener(object: HealthDataAdapter.OnItemClickListener{
-            override fun onLongPress(position: Int) {
-                val date = healthDataList[position].date
-                lifecycleScope.launch(IO) {
-                    val data = (application as BitFitApplication).db.healthDataDao().get(date).get(0)
-                    (application as BitFitApplication).db.healthDataDao().delete(data)
-                }
-            }
-        }
-
-        )
+        // Set default selection
+        bottomNavigationView.selectedItemId = R.id.nav_log
 
     }
-
 
     /*
-    Get average of "sleepHours" and "exerciseHours" columns and display
+    * Replace fragment in the frame layout of main activity
      */
-    private fun calAverage() {
-
-        lifecycleScope.launch(IO) {
-            var sleepAverage = (application as BitFitApplication).db.healthDataDao().getAverageSleep()
-            var exerciseAverage = (application as BitFitApplication).db.healthDataDao().getAverageExercise()
-
-            // need to use getMainLooper() to Toast on UI thread
-            Handler(Looper.getMainLooper()).post{
-                statBtn.text = "Average hours of sleep: " + ((sleepAverage * 1.0).toInt()/1.0).toString() + " hours \n" +
-                        "Average hours of workout: " + ((exerciseAverage * 1.0).toInt()/1.0).toString() + " hours"
-            }
-
-        }
-
-
+    private fun replaceFragment(selectedFragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.main_frame_layout, selectedFragment)
+        fragmentTransaction.commit()
     }
-
-
-
 
 }

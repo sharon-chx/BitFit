@@ -2,16 +2,13 @@ package com.example.bitfit
 
 import android.app.DatePickerDialog
 import android.content.Context
-import android.database.sqlite.SQLiteConstraintException
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.launch
 import java.util.*
@@ -136,7 +133,4 @@ class InputActivity : AppCompatActivity() {
         }
     }
 
-    private fun insertError(){
-
-    }
 }

@@ -2,17 +2,17 @@
 
 Submitted by: **Sharon Chen**
 
-**Name of your app** is a health metrics app that allows users to track sleep and exercise hours
+**BitFit** is a health metrics app that allows users to track sleep and exercise hours
 
-Time spent: **X** hours spent in total
+Time spent: **2** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] **Use at least 2 Fragments**
-- [ ] **Create a new dashboard fragment where users can see a summary of their entered data**
-- [ ] **Use one of the Navigation UI Views (BottomNavigation, Drawer Layout, Top Bar) to move between the fragments**
+- [x] **Use at least 2 Fragments**
+- [x] **Create a new dashboard fragment where users can see a summary of their entered data**
+- [x] **Use one of the Navigation UI Views (BottomNavigation, Drawer Layout, Top Bar) to move between the fragments**
 
 The following **optional** features are implemented:
 
