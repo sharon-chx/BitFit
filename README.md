@@ -21,7 +21,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-from part 1 of this project:
+from part 1 of this project (check "part1" branch for the gif):
 - [x] **There is a "create entry" UI that prompts users to make their daily entry**
 - [x] **New entries are saved in a database and then updated in the RecyclerView**
 - [x] **On application restart, previously entered entries are preserved (i.e., are persistent)**
